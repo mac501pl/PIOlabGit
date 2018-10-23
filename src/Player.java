@@ -1,7 +1,5 @@
-import java.util.Random;
+abstract public class Player {    //nie da się utworzyć instancji klasy (i dobrze!)
 
-public class Player {
-    private Random dye = new Random();
     private String name = "Domyslne";
 
     public Player() {
@@ -13,9 +11,7 @@ public class Player {
         setName(name);
     }
 
-    public int guess() {
-        return dye.nextInt(6) + 1;
-    }
+    abstract public int guess();
 
     public String getName() {
         return name;
@@ -25,5 +21,5 @@ public class Player {
         if (name != null && !name.isEmpty()) {  //albo "".equals(name); ale to źle
             this.name = name;                   //ważne kolejność! najpierw sprawdzamy czy jest różne od NULL
         }                                       //nie ma else bo name już ma wartość przypisaną - domyślną
-    }
+    }                                           //TODO: kontrola poprawności danych
 }
