@@ -10,12 +10,18 @@ public class main {
 
 
         Player player;
-        if(...)
-            player = PlayerHuman();
-         else
-            player = Player();
+        if(false)
+            player = new PlayerHuman();
+        else
+            player = new PlayerComp();
 
-
+        try {
+            player.setName("2Maciek");
+        //} catch (IllegalArgumentException e) {//od najbardziej wyspecjalizowanego do najbardziej ogolnego wyjątku
+        //    System.err.println("Błędne imię!\n" + e);
+        } catch (Exception e) {
+            System.err.println("Błąd!\n" + e + "\n" + player);
+        }  //TODO: ogarnąć to
 
 
         int x, y;  //TODO: zrobić jakoś bez tych zmiennych i jakoś ładniej np: player: 5, comp: 6 PRZEGRANA

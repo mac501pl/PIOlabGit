@@ -15,6 +15,6 @@ public class PlayerHuman extends Player {
     @Override
     public int guess() {
         System.out.print("Podaj liczbę (1 - 6): ");
-        return cin.nextInt();
+        return cin.nextInt();           //ponoć brzydko ale ja nie wiem
     }
 }

@@ -18,8 +18,20 @@ abstract public class Player {    //nie da się utworzyć instancji klasy (i dob
     }
 
     public void setName(String name) {
-        if (name != null && !name.isEmpty()) {  //albo "".equals(name); ale to źle
-            this.name = name;                   //ważne kolejność! najpierw sprawdzamy czy jest różne od NULL
-        }                                       //nie ma else bo name już ma wartość przypisaną - domyślną
-    }                                           //TODO: kontrola poprawności danych
+        if (name != null && name.matches("^[a-zA-Z][a-zA-Z0-9.,_@-]{1,}$")) {    //REGEX101.com
+            this.name = name;                   //przd kropką niby 2 \ powinno być ale nie trzeba chyba
+            //albo "".equals(name); ale to źle
+            //ważne kolejność! najpierw sprawdzamy czy jest różne od NULL
+            //nie ma else bo name już ma wartość przypisaną - domyślną
+        } else {
+            //System.err.println("Błędne imię!!!");
+            throw new IllegalArgumentException("Niepoprawne imię!"); //wywali program
+        }
+    }
+
+    @Override
+    public String toString(){
+        return this.getClass().getSimpleName() + " : " + name;
+//        return super.toString() + " : " + name;
+    }
 }
