@@ -23,17 +23,24 @@ public class main {
             System.err.println("Błąd!\n" + e + "\n" + player);
         }  //TODO: ogarnąć to
 
+        int number, guess;
 
-        int x, y;  //TODO: zrobić jakoś bez tych zmiennych i jakoś ładniej np: player: 5, comp: 6 PRZEGRANA
-        System.out.println(player.getName());
         do {
-            x = r.nextInt(6) + 1;
-            y = player.guess();
-            if (x == y) {
-                System.out.println(x + " = " + y);
-            } else {
-                System.out.println(x + " != " + y);
+            System.out.println("---------------------");
+
+            number = r.nextInt(6) + 1;
+            System.out.println("Kostka: " + number);
+
+            guess = player.guess();
+
+            System.out.println("Gracz " + player.getName() + ": " + guess);
+
+            if (number != guess) {
+                System.out.println("PUDŁO!");
             }
-        } while (x != y);
+
+        } while (number != guess);
+
+        System.out.println("BRAWO!");
     }
 }
