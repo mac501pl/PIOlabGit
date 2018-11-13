@@ -4,12 +4,13 @@ public class PlayerHuman extends Player {
 
     private final Scanner cin = new Scanner(System.in);
 
-    public PlayerHuman() {
+    public PlayerHuman(TextInput in) {
+        super(in);
     }
 
-    public PlayerHuman(String name) {
+    public PlayerHuman(TextInput in, String name) {
         //setName(name);  //brzydko, zasada DRY - don't repeat yourself
-        super(name);    //wywołaj konstruktor klasy nadrzędnej
+        super(in, name);    //wywołaj konstruktor klasy nadrzędnej
     }
 
     @Override

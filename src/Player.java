@@ -1,13 +1,18 @@
+import java.util.Scanner;
 abstract public class Player {    //nie da się utworzyć instancji klasy (i dobrze!)
+
+    private TextInput in;
 
     private String name = "Domyslne";
 
-    public Player() {
+    public Player(TextInput in) { //TODO: sprawdzic czy wszystkie konstruktory zaktualizowane
+        this.in = in;
         //    this.name = "Domyslne";   //bez deklaracji i bez domyślnej wartości będzie NULL, tak ponoć źle
         //    setName("Domyslne");      //a może tak?
     }
 
-    public Player(String name) {
+    public Player(TextInput in, String name) {
+        this.in = in;
         setName(name);
     }
 
@@ -24,9 +29,18 @@ abstract public class Player {    //nie da się utworzyć instancji klasy (i dob
             //ważne kolejność! najpierw sprawdzamy czy jest różne od NULL
             //nie ma else bo name już ma wartość przypisaną - domyślną
         } else {
-            //System.err.println("Błędne imię!!!");
+            // System.err.println("Błędne imię!!!");
             throw new IllegalArgumentException("Niepoprawne imię!"); //wywali program
         }
+    }
+
+    public void askForName(){
+        setName(in.getText());
+    }
+
+    public void setTextInput(TextInput in){
+        this.in = in;
+
     }
 
     @Override

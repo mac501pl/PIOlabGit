@@ -1,27 +1,34 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
         Random r = new Random();
+        Scanner cin = new Scanner(System.in);
         //Player p = new Player("Janek");
         //Player p = new Player(); //konstruktor bezparametrowy
         //Player human = new PlayerHuman("Marek");
         //p.setName("Janek");
 
 
+        //TextInput in = new ConsoleInput();
+
         Player player;
         if(false)
-            player = new PlayerHuman();
+            player = new PlayerHuman(new ConsoleInput());
         else
-            player = new PlayerComp();
+            player = new PlayerComp(new GUIInput());
+
+        //player.setTextInput(new ConsoleInput());
+
 
         try {
-            player.setName("2Maciek");
-        //} catch (IllegalArgumentException e) {//od najbardziej wyspecjalizowanego do najbardziej ogolnego wyjątku
-        //    System.err.println("Błędne imię!\n" + e);
+    player.askForName();
+        } catch (IllegalArgumentException e) {//od najbardziej wyspecjalizowanego do najbardziej ogolnego wyjątku
+            System.err.println("Błędne imię!\n" + e);
         } catch (Exception e) {
-            System.err.println("Błąd!\n" + e + "\n" + player);
-        }  //TODO: ogarnąć to
+            System.err.println("Błąd!\n" + "\n" + player);
+        }
 
         int number, guess;
 
